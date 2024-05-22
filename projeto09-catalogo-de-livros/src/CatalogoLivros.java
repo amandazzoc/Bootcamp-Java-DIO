@@ -12,15 +12,55 @@ public class CatalogoLivros {
         livroList.add(new Livro(titulo, autor, anoPublicacao));
     }
 
-    public List<Livro> pesquisarPorAutor(String autor){
+    public List<Livro> pesquisarPorAutor(String autor) {
         List<Livro> livrosPorAutor = new ArrayList<>();
-        if(!livroList.isEmpty()){//Se a lista estiver vazia retorna true, se for false começa o metodo
-            for(Livro t : livroList){
-                if(t.getAutor().equalsIgnoreCase(autor)){
+        if (!livroList.isEmpty()) {// Se a lista estiver vazia retorna true, se for false começa o metodo
+            for (Livro t : livroList) {
+                if (t.getAutor().equalsIgnoreCase(autor)) {
                     livrosPorAutor.add(t);
                 }
             }
         }
         return livrosPorAutor;
+    }
+
+    public List<Livro> pesquisarPorIntervaloAnos(int anoInicial, int anoFinal){
+        List<Livro> livrosPorIntervaloAnos = new ArrayList<>();
+        if(!livroList.isEmpty()){
+            for(Livro t : livroList){
+                if(t.getAnoPublicacao() >= anoInicial && t.getAnoPublicacao() <= anoFinal){
+                    livrosPorIntervaloAnos.add(t);
+                }
+            }
+        }
+        return livrosPorIntervaloAnos;
+    }
+
+    public Livro pesquisarPorTitulo(String titulo){
+        Livro livroPorTitulo = null;
+        if(!livroList.isEmpty()){
+            for(Livro l: livroList) {
+                if(l.getTitulo().equalsIgnoreCase(titulo)){
+                    livroPorTitulo = l;
+                    break;
+                }
+            }
+        }
+        return livroPorTitulo;
+    }
+
+    public static void main(String[] args) {
+        CatalogoLivros catalogoLivros = new CatalogoLivros();
+        catalogoLivros.adicionarLivro("Livro 1", "Autor 1", 2020);
+        catalogoLivros.adicionarLivro("Livro 1", "Autor 2", 2021);
+        catalogoLivros.adicionarLivro("Livro 2", "Autor 2", 2022);
+        catalogoLivros.adicionarLivro("Livro 3", "Autor 3", 2023);
+        catalogoLivros.adicionarLivro("Livro 4", "Autor 4", 1994);
+
+        System.out.println(catalogoLivros.pesquisarPorAutor("Autor 4"));
+
+        System.out.println(catalogoLivros.pesquisarPorIntervaloAnos(2020, 2023));
+
+        System.out.println(catalogoLivros.pesquisarPorTitulo("Livro 3"));
     }
 }
