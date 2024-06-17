@@ -16,6 +16,10 @@ public class Contato {
         return numero;
     }
 
+    public void setNumero(int numero) {
+        this.numero = numero; //Necessário para atualizar o número
+    }
+
     @Override
     public String toString() {
         return "Contato [nome=" + nome + ", numero=" + numero + "]";
