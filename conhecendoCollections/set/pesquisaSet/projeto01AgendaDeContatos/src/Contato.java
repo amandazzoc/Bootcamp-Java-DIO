@@ -22,7 +22,7 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "Contato [nome=" + nome + ", numero=" + numero + "]";
+        return nome + ": " + numero ;
     }
 
     //Vai comparar somente pelo nome pos a pessoa só vai pesquisar pelo nome da pessoa
