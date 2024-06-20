@@ -54,7 +54,6 @@ public class Dicionario {
         dicionario.removerPalavra("java");
         dicionario.exibirPalavras();
 
-        String palavraParaPesquisar = dicionario.pesquisarPorPalavra("kotlin");
         System.out.println("definição da palavra 'kotlin' é: "+  dicionario.pesquisarPorPalavra("kotlin"));
 
     }
