@@ -15,6 +15,7 @@ public class Desafio {
 
         System.out.println("Conta Poupanca:");
         contaPoupanca.exibirInformacoes();
+    
     }
 }
 
@@ -42,10 +43,14 @@ class ContaPoupanca extends ContaBancaria {
 
     public ContaPoupanca(int numero, String titular, double saldo, double taxaJuros) {
         //TODO: Implementar adequadamente esta sobrecarga de construtores.
+        super(numero, titular, saldo);
+        this.taxaJuros = taxaJuros;
     }
 
     public void exibirInformacoes() {
         super.exibirInformacoes();
+        DecimalFormat decimalFormat = new DecimalFormat("#.0");
+        System.out.println("Taxa de juros: " + decimalFormat.format(taxaJuros) + "%");
         //TODO: Complementar as informações com a taxa de juros.
     }
 }
