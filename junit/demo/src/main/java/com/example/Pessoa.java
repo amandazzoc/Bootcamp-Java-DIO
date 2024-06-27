@@ -7,10 +7,14 @@ public class Pessoa {
 
     private String nome;
 
-    private LocalDate nascimento;
+    private final LocalDate nascimento;
 
-    public Pessoa(String nome, LocalDate nascimento) {
+    public Pessoa(String nome, LocalDate localDate) {
         this.nome = nome;
+        this.nascimento = localDate;
+    }
+
+    public Pessoa(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
 
