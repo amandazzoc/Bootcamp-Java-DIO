@@ -1,1 +1,12 @@
-com\example\Main.class
+com\example\DadosLocalizacao.class
+com\example\Pessoa.class
+com\example\PlataformaDeEnvio.class
+com\example\EnviarMensagem.class
+com\example\Mensagem.class
+com\example\ApiDosCorreios.class
+com\example\GeradorDeNumeros.class
+com\example\ServicoEnvioEmail.class
+com\example\Formato.class
+com\example\Email.class
+com\example\CadastrarPessoa1.class
+com\example\Conta.class
