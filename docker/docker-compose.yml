@@ -1,0 +1,30 @@
+version: '26.1.4' # Define a versão do Docker Compose que está sendo usada. Isso garante compatibilidade com os recursos disponíveis nessa versão específica.
+
+services: # Define os serviços que compõem a aplicação. No caso, há apenas um serviço chamado db.
+  db: # Nome do serviço (pode ser qualquer nome que você escolha, desde que faça sentido para o que está configurando).
+    image: mongo # Define a imagem Docker que será usada para o serviço. Aqui, mongo é a imagem oficial do MongoDB disponível no Docker Hub.
+    container_name: db # Especifica o nome do container. Isso facilita a identificação e o gerenciamento do container.
+    restart: always # Configura a política de reinício do container. always significa que o Docker irá reiniciar o container automaticamente se ele parar ou se o Docker for reiniciado.
+    environment: # Define variáveis de ambiente que serão passadas para o container. No caso do MongoDB, estamos definindo:
+      - MONGO_INITDB_ROOT_USERNAME=dio # Nome de usuário do administrador do banco de dados
+      - MONGO_INITDB_ROOT_PASSWORD=dio # Senha do administrador do banco de dados.
+    ports:
+      - "27017:27017" #Mapeia as portas do container para as portas do host. No formato "host_port:container_port". Aqui, a porta 27017 do host é mapeada para a porta 27017 do container, permitindo acesso ao MongoDB a partir do host.
+    volumes: #Mapeia um diretório do host para um diretório no container. No formato host_directory:container_directory. Isso é usado para persistir dados do MongoDB no host.
+      - C:/Users/amanda.oliveira/Desktop/Bootcamp-Java-DIO/docker:/data/db #mapeia o diretório no host C:/Users/amanda.oliveira/Desktop/Bootcamp-Java-DIO/docker para o diretório /data/db no container, onde o MongoDB armazena seus dados.
+
+# Após fazer esse arquivo digite no terminal ´docker-compose up -d´, este comando cria e inicia os containers definidos no arquivo docker-compose.yml. A opção -d (detached) faz com que os containers sejam iniciados em segundo plano.
+
+# Para verificar se deu tudo certo execute o ´docker container ps´, que lista todos os containers Docker em execução, mostrando informações como o ID do container, a imagem, o comando, o tempo de execução, as portas mapeadas e o nome do container.
+
+# Se tudo der certo aparecerá assim: 
+# CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                      NAMES
+# d4cfe32b98b4   mongo     "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   0.0.0.0:27017->27017/tcp   db
+
+# CONTAINER ID: ID único do container.
+# IMAGE: A imagem Docker usada para criar o container.
+# COMMAND: O comando que está sendo executado no container.
+# CREATED: Quanto tempo atrás o container foi criado.
+# STATUS: O estado atual do container (em execução, parado, etc.).
+# PORTS: As portas mapeadas do container para o host.
+# NAMES: O nome do container.
