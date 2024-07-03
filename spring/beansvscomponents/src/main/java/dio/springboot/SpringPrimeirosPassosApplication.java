@@ -15,11 +15,11 @@ public class SpringPrimeirosPassosApplication {
 		SpringApplication.run(SpringPrimeirosPassosApplication.class, args);
 	}
 	@Bean
-	public CommandLineRunner run(ConversorJson conversor) throws Exception {
+	public CommandLineRunner run(ConversorJson conversor) throws Exception { // interface usada para executar um código quando a aplicação Spring Boot é inicializada Este bean recebe um ConversorJson como parâmetro e o usa para converter um JSON em um objeto ViaCepResponse. Depois, imprime os dados desse objeto.
 		return args -> {
-			String json = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"localidade\": \"São Paulo\"}";
-			ViaCepResponse response = conversor.converter(json);
-			System.out.println("Dados do CEP: " + response);
+			String json = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"localidade\": \"São Paulo\"}"; // um json
+			ViaCepResponse response = conversor.converter(json); // o via cep response vai converter o json passado
+			System.out.println("Dados do CEP: " + response); // mostra a conversão
 		};
 	}
 

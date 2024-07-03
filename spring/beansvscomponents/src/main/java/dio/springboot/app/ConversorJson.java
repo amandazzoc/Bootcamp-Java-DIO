@@ -9,7 +9,7 @@ public class ConversorJson {
     @Autowired
     private Gson gson;
     public ViaCepResponse converter(String json ){
-        ViaCepResponse response = gson.fromJson(json,ViaCepResponse.class);
+        ViaCepResponse response = gson.fromJson(json,ViaCepResponse.class); //Gson converte o Json para objeto
         return response;
     }
 }
