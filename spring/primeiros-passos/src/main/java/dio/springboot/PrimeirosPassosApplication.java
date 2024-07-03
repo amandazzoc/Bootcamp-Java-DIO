@@ -8,7 +8,7 @@ public class PrimeirosPassosApplication {
 
 	public static void main(String[] args) {
 		
-		SpringApplication.run(PrimeirosPassosApplication.class, args);
+		SpringApplication.run(PrimeirosPassosApplication.class, args); //Instrução de inicialização
 	}
 
 }
